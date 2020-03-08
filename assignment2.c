@@ -10,11 +10,9 @@
 * Description: We are to calculate the distance between the echo sensor and an object infront of it. we record the time the sound waves take to leave the sensor (trigger),
                hit the object and bouch back to the sensor reciever(echo).
 *
-* Sources: http://wiringpi.com/examples/blink/
+* Sources: // https://www.raspberrypi.org/forums/viewtopic.php?t=222142
            https://www.youtube.com/watch?v=kqJ8WYQu68w
 **************************************************************/
-// sources: 
-// https://www.raspberrypi.org/forums/viewtopic.php?t=222142
 #include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
