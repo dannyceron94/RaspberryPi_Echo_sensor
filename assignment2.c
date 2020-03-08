@@ -1,3 +1,20 @@
+
+/**************************************************************
+* Class: CSC-615-01 Spring 2020
+* Name: Danny Daneth Ceron Garcia
+* Student ID: 918581149
+* Project: <Assignment 2 - Echo sensor>
+*
+* File: <assignment2.c>
+*
+* Description: We are to calculate the distance between the echo sensor and an object infront of it. we record the time the sound waves take to leave the sensor (trigger),
+               hit the object and bouch back to the sensor reciever(echo).
+*
+* Sources: http://wiringpi.com/examples/blink/
+           https://www.youtube.com/watch?v=kqJ8WYQu68w
+**************************************************************/
+// sources: 
+// https://www.raspberrypi.org/forums/viewtopic.php?t=222142
 #include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
