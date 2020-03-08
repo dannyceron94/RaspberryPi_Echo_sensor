@@ -13,6 +13,7 @@ int main(void){
 
     startUpEcho();
     double distance = recordedTime()*(340/2);
+    printf("the distance is %lf cm",distance)
     return 0;
 }
 
