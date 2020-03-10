@@ -1,57 +1,51 @@
-
-/**************************************************************
-* Class: CSC-615-01 Spring 2020
-* Name: Danny Daneth Ceron Garcia
-* Student ID: 918581149
-* Project: <Assignment 2 - Echo sensor>
-*
-* File: <assignment2.c>
-*
-* Description: We are to calculate the distance between the echo sensor and an object infront of it. we record the time the sound waves take to leave the sensor (trigger),
-               hit the object and bouch back to the sensor reciever(echo).
-*
-* Sources: // https://www.raspberrypi.org/forums/viewtopic.php?t=222142
-           https://www.youtube.com/watch?v=kqJ8WYQu68w
-**************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
 #include <time.h>
 
-#define ECHO 31
-#define TRIGGER 29
+#define ECHO 22    //pin 40
+#define TRIGGER 21 //pin 15
 
 void startUpEcho();
 double recordedTime(); 
 
 int main(void){
-
-    startUpEcho();
-    double distance = recordedTime()*(340/2);
-    printf("the distance is %lf cm",distance)
+    double distance =0;
+    while(1){
+        startUpEcho();
+        distance = recordedTime()*(340/2)*100;
+        printf("distance is %f cm\n",distance);
+        }
     return 0;
 }
 
 void startUpEcho(){
-
-    wiringPiSetup();
+    if(wiringPiSetup()){
+        printf("wire was etup");
+        }
+    
     pinMode(TRIGGER,OUTPUT);
     pinMode(ECHO,INPUT);
+
     digitalWrite(TRIGGER,LOW);
-    delay(0.01);//.00001s
-    printf("setup function call\n");
+    delay(500);//.00001s
+    digitalWrite(TRIGGER,HIGH);
+    delay(0.05);//.00001s
+    digitalWrite(TRIGGER,LOW);
+    //delay(0.01);//.00001s
+    //printf("setup function call\n");
 }
 
 double recordedTime(){
     clock_t start, end;
-    printf("recorded function");
+    //printf("recorded function");
     while(digitalRead(ECHO) == LOW){
         printf("echo off\n");
         start = clock();
     }
     while(digitalRead(ECHO)==HIGH){
         end = clock();
-        printf("echo tue\n");
+        printf("echo on\n");
     }
 
     return ((double)(end-start))/CLOCKS_PER_SEC;
