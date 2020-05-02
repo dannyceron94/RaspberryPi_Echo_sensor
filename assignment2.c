@@ -40,12 +40,12 @@ double recordedTime(){
     clock_t start, end;
     //printf("recorded function");
     while(digitalRead(ECHO) == LOW){
-        printf("echo off\n");
+       // printf("echo off\n");
         start = clock();
     }
     while(digitalRead(ECHO)==HIGH){
         end = clock();
-        printf("echo on\n");
+        //printf("echo on\n");
 	if(digitalRead(ECHO)==LOW){break;}
     }
 
