@@ -46,6 +46,7 @@ double recordedTime(){
     while(digitalRead(ECHO)==HIGH){
         end = clock();
         printf("echo on\n");
+	if(digitalRead(ECHO)==LOW){break;}
     }
 
     return ((double)(end-start))/CLOCKS_PER_SEC;
