@@ -21,7 +21,7 @@ int main(void){
 
 void startUpEcho(){
     if(wiringPiSetup()){
-        printf("wire was etup");
+       // printf("wire was etup");
         }
     
     pinMode(TRIGGER,OUTPUT);
